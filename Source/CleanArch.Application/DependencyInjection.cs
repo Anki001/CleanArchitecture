@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using CleanArch.Application.Behaviours;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArch.Application;
@@ -13,6 +15,8 @@ public static class DependencyInjection
             configuration.RegisterServicesFromAssemblies(assembly));
 
         services.AddValidatorsFromAssembly(assembly);
+
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingPipelineBehaviour<,>));
 
         return services;
     }

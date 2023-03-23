@@ -1,6 +1,8 @@
 using CleanArch.Application;
+using CleanArch.Application.Behaviours;
 using CleanArch.Infrastructure;
 using CleanArch.Presentation;
+using MediatR;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
